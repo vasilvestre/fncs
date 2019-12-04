@@ -1,5 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {UserPanel} from "./UserPanel";
 
-ReactDOM.render(React.createElement(UserPanel, { email: 'vasilvestre@laposte.net' }), document.getElementById('root'));
+function App() {
+    const name = 'baptiste';
+    const welcoming = <p>Bonjour {name}</p>;
+    return (
+        <>
+            {welcoming}
+        </>
+    )
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'));
