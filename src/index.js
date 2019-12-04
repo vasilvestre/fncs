@@ -1,13 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { UserPanel } from './UserPanel'
 
 function App() {
-    const name = 'baptiste';
-    const welcoming = <p>Bonjour {name}</p>;
     return (
-        <>
-            {welcoming}
-        </>
+        <div className={'row'}>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+            <UserPanel></UserPanel>
+        </div>
     )
 }
 
