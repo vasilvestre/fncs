@@ -8,16 +8,20 @@ export class SearchStation extends Component {
         this.state = {
             query: '',
         }
-        this.updateResults = debounce(this.props.updateResults, 250)
+        this.updateResults = debounce(this.props.updateResults, 500)
     }
 
     async searchStations(city) {
         if (city === '') {
             return [];
         }
-        const promise = await fetch(this.props.baseUrl + city)
+        const promise = await this.getPromiseFromApi(city);
         const promiseJson = await promise.json()
         return promiseJson.records.map(record => record.fields)
+    }
+
+    async getPromiseFromApi(city) {
+        return await fetch(this.props.baseUrl + city)
     }
 
     async onChange(evt) {

@@ -13,7 +13,6 @@ export class ListStation extends Component {
             </thead>
             <tbody>
             {this.props.results.map((result, i) => {
-                console.log(result)
                 return <tr key={i}>
                     <td>{result.pltf_commune_libellemin}</td>
                     <td>{result.gare_alias_libelle_noncontraint}</td>
