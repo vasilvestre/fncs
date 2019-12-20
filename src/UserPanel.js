@@ -6,7 +6,7 @@ import EmailValidator from 'email-validator'
 export class UserPanel extends Component {
     render() {
         const { nom, email, prenom } = this.props
-        return <div className={'col s12 m2'}>
+        return <div className={'col s12 m3'}>
             <div className={'card'}>
                 <div className={'card-image'}>
                     <img src={'https://www.gravatar.com/avatar/' + md5(email)} alt=""/>
