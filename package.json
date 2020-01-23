@@ -4,12 +4,21 @@
   "private": true,
   "homepage": "https://vasilvestre.github.io/fncs/build",
   "dependencies": {
+    "@types/jest": "^24.9.0",
+    "@types/lodash": "^4.14.149",
+    "@types/md5": "^2.1.33",
+    "@types/node": "^13.1.8",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
     "email-validator": "^2.0.4",
     "lodash": "^4.17.15",
-    "materialize-css": "^1.0.0-rc.2",
+    "materialize-css": "^1.0.0",
+    "md5": "^2.2.1",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "^3.3.0",
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,11 +44,12 @@
     ]
   },
   "devDependencies": {
+    "@types/prop-types": "^15.7.3",
     "cypress": "3.8.2",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-cypress": "^2.8.1",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.0",
     "jest": "^24.9.0",
     "prettier": "1.19.1"
@@ -47,10 +57,10 @@
   "jest": {
     "coverageThreshold": {
       "global": {
-        "branches": 10,
-        "functions": 10,
-        "lines": 10,
-        "statements": -10
+        "branches": 5,
+        "functions": 5,
+        "lines": 5,
+        "statements": -50
       }
     }
   },
@@ -61,7 +71,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,json,md}": [
+    "*.{tsx,js,css,json,md}": [
       "prettier --write",
       "git add"
     ]

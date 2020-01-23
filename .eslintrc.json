@@ -1,6 +1,7 @@
 {
   "plugins": ["prettier"],
   "rules": {
+    "strict": "off",
     "prettier/prettier": "error"
   },
   "extends": [
@@ -12,6 +13,7 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "impliedStrict": false
   }
 }

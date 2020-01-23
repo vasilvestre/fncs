@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { debounce } from 'lodash'
 
 /*eslint-disable */
-export class SearchStation extends Component {
-    constructor(props, context) {
+export class SearchStation extends Component<any, any> {
+    [x: string]: any
+    constructor(props: any, context: any) {
         super(props, context)
         this.state = {
             query: '',
@@ -11,21 +12,21 @@ export class SearchStation extends Component {
         this.updateResults = debounce(this.props.updateResults, 200)
     }
 
-    async searchStations(city) {
+    async searchStations(city: any) {
         if (city === '') {
             return [];
         }
         const promise = await this.getPromiseFromApi(city);
         const promiseJson = await promise.json()
         this.props.switchLoading()
-        return promiseJson.records.map(record => record.fields)
+        return promiseJson.records.map((record: { fields: any }) => record.fields)
     }
 
-    async getPromiseFromApi(city) {
+    async getPromiseFromApi(city: any) {
         return await fetch(this.props.baseUrl + city)
     }
 
-    async onChange(evt) {
+    async onChange(evt: any) {
         this.props.switchLoading()
         const query = evt.target.value
         this.setState({

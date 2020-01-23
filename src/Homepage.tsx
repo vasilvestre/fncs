@@ -3,8 +3,8 @@ import { SearchStation } from './SearchStation'
 import { ListStation } from './ListStation'
 
 
-export class Homepage extends Component {
-    constructor(props, context) {
+export class Homepage extends Component<any, any> {
+    constructor(props: any, context: any) {
         super(props, context)
 
         this.state = {
@@ -19,7 +19,7 @@ export class Homepage extends Component {
         })
     }
 
-    updateResults = (results) => {
+    updateResults = (results: any) => {
         this.setState({
             apiResults: results,
         })

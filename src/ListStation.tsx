@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 /*eslint-disable */
-export class ListStation extends Component {
+export class ListStation extends Component<any, any> {
     render() {
         const loadedContent = <table className="table table-hover table-bordered results centered highlight responsive-table">
             <thead>
@@ -12,7 +12,7 @@ export class ListStation extends Component {
             </tr>
             </thead>
             <tbody>
-            {this.props.results.map((result, i) => {
+            {this.props.results.map((result: { pltf_commune_libellemin: React.ReactNode; gare_alias_libelle_noncontraint: React.ReactNode; pltf_departement_libellemin: React.ReactNode }, i: string | number | undefined) => {
                 return <tr key={i}>
                     <td>{result.pltf_commune_libellemin}</td>
                     <td>{result.gare_alias_libelle_noncontraint}</td>

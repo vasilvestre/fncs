@@ -18,4 +18,8 @@ jobs:
       - run: npm run test-ci
         env:
           CI: true
-      - run: npm run e2e
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          browser: chrome
+          headless: true
