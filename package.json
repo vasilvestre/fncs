@@ -44,6 +44,16 @@
     "jest": "^24.9.0",
     "prettier": "1.19.1"
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": -10
+      }
+    }
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
