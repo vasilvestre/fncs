@@ -9,7 +9,14 @@ export class Homepage extends Component {
 
         this.state = {
             apiResults: [],
+            loading: false
         }
+    }
+
+    switchLoading = () => {
+        this.setState({
+            loading: !this.state.loading
+        })
     }
 
     updateResults = (results) => {
@@ -25,6 +32,7 @@ export class Homepage extends Component {
                     <SearchStation
                         baseUrl={'https://ressources.data.sncf.com/api/records/1.0/search/?dataset=referentiel-gares-voyageurs&q='}
                         updateResults={this.updateResults}
+                        switchLoading={this.switchLoading}
                     />
                 </div>
             </div>
@@ -32,6 +40,7 @@ export class Homepage extends Component {
                 <div className={'col s12'}>
                     <ListStation
                         results={this.state.apiResults}
+                        loading={this.state.loading}
                     />
                 </div>
             </div>

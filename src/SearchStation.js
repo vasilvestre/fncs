@@ -17,6 +17,7 @@ export class SearchStation extends Component {
         }
         const promise = await this.getPromiseFromApi(city);
         const promiseJson = await promise.json()
+        this.props.switchLoading()
         return promiseJson.records.map(record => record.fields)
     }
 
@@ -25,6 +26,7 @@ export class SearchStation extends Component {
     }
 
     async onChange(evt) {
+        this.props.switchLoading()
         const query = evt.target.value
         this.setState({
             query: query,

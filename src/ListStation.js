@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 /*eslint-disable */
 export class ListStation extends Component {
     render() {
-        const content = <table className="table table-hover table-bordered results centered highlight responsive-table">
+        const loadedContent = <table className="table table-hover table-bordered results centered highlight responsive-table">
             <thead>
             <tr>
                 <th className="col-l-3">City name</th>
@@ -21,6 +21,22 @@ export class ListStation extends Component {
             })}
             </tbody>
             </table>
-        return this.props.results.length > 0 ? content : <></>
+        const loadingContent = (<div className="preloader-wrapper big active">
+            <div className="spinner-layer spinner-blue-only">
+                <div className="circle-clipper left">
+                    <div className="circle"></div>
+                </div>
+                <div className="gap-patch">
+                    <div className="circle"></div>
+                </div>
+                <div className="circle-clipper right">
+                    <div className="circle"></div>
+                </div>
+            </div>
+        </div>)
+        if(this.props.loading) {
+            return loadingContent
+        }
+        return this.props.results.length > 0 ? loadedContent : (<></>)
     }
 }
