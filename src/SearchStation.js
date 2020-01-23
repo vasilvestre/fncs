@@ -8,7 +8,7 @@ export class SearchStation extends Component {
         this.state = {
             query: '',
         }
-        this.updateResults = debounce(this.props.updateResults, 500)
+        this.updateResults = debounce(this.props.updateResults, 200)
     }
 
     async searchStations(city) {
