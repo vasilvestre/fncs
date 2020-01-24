@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { SearchStation } from './SearchStation'
 import { ListStation } from './ListStation'
+import { TopTitle } from './TopTitle'
+import { Pagination } from './Pagination'
 
 
 export class Homepage extends Component<any, any> {
@@ -27,6 +29,7 @@ export class Homepage extends Component<any, any> {
 
     render() {
         return <>
+            <TopTitle/>
             <div className={"row"}>
                 <div className={'col s12'}>
                     <SearchStation
@@ -44,6 +47,9 @@ export class Homepage extends Component<any, any> {
                     />
                 </div>
             </div>
+            <Pagination
+                haveResults={this.state.apiResults}>
+            </Pagination>
         </>
     }
 }
