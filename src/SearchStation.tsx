@@ -3,13 +3,13 @@ import { debounce } from 'lodash'
 
 /*eslint-disable */
 export class SearchStation extends Component<any, any> {
-    [x: string]: any
     constructor(props: any, context: any) {
         super(props, context)
         this.state = {
             query: '',
         }
-        this.updateResults = debounce(this.props.updateResults, 200)
+        // eslint-disable-next-line
+        //this.updateResults = debounce(this.props.updateResults, 200)
     }
 
     async searchStations(city: any) {
@@ -32,7 +32,7 @@ export class SearchStation extends Component<any, any> {
         this.setState({
             query: query,
         })
-        this.updateResults(await this.searchStations(query))
+        this.props.updateResults(await this.searchStations(query))
     }
 
     render() {

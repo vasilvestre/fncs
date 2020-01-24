@@ -1,12 +1,12 @@
-name: CI
+name: Unit testing
 on: [push]
 jobs:
-  build:
-    name: Test
-    runs-on: ubuntu-latest
+  unit-test-run:
+    runs-on: ubuntu-16.04
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
+    name: Unit tests on Node v${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -18,8 +18,3 @@ jobs:
       - run: npm run test-ci
         env:
           CI: true
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
-        with:
-          browser: chrome
-          headless: true

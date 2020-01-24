@@ -1,0 +1,39 @@
+name: End-to-end tests
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+    name: E2E on Node ${{ matrix.node-version }}
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Checkout
+        uses: actions/checkout@v1
+      - run: npm install
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          install: false
+          build: npm run build
+          start: npm start
+          record: true
+          group: Tests on Node v${{ matrix.node-version }}
+          cache-key: node-v${{ matrix.node-version }}-on-${{ runner.os }}-hash-${{ hashFiles('package-lock.json') }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.dashboardRecordKey }}
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
