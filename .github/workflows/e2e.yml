@@ -19,8 +19,6 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           install: false
-          build: npm run build
-          start: npm start
           record: true
           group: Tests on Node v${{ matrix.node-version }}
           cache-key: node-v${{ matrix.node-version }}-on-${{ runner.os }}-hash-${{ hashFiles('package-lock.json') }}

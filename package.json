@@ -1,16 +1,19 @@
 {
-  "name": "fncs1",
+  "name": "fncs",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://vasilvestre.github.io/fncs/build",
   "dependencies": {
-    "@types/jest": "^24.9.1",
+    "@testing-library/jest-dom": "^5.0.2",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
     "@types/lodash": "^4.14.149",
     "@types/materialize-css": "^1.0.7",
     "@types/md5": "^2.1.33",
-    "@types/node": "^13.5.0",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.3",
     "email-validator": "^2.0.4",
     "lodash": "^4.17.15",
@@ -20,8 +23,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0",
-    "typescript": "^3.7.5"
+    "react-scripts": "3.3.0",
+    "typescript": "~3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

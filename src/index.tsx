@@ -1,31 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Homepage } from './Homepage'
-import { TopTitle } from './TopTitle'
-import { Sidebar } from './Sidebar'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-import 'materialize-css/dist/css/materialize.min.css'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Contact } from './Contact'
+ReactDOM.render(<App />, document.getElementById('root'));
 
-function App() {
-    return (
-        <>
-            <Router>
-                <Sidebar/>
-                <div className={'container'}>
-                    <div className={'row'}>
-                        <Route exact path="/">
-                            <Homepage/>
-                        </Route>
-                        <Route exact path="/contact">
-                            <Contact/>
-                        </Route>
-                    </div>
-                </div>
-            </Router>
-        </>
-    )
-}
-
-ReactDOM.render(<App/>, document.getElementById('root'))
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
