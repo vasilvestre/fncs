@@ -1,6 +1,6 @@
 import React from 'react'
 import 'typeface-roboto'
-import Navbar from './Navbar'
+import Navbar from './Template/Navbar/Navbar'
 
 const App: React.FC = () => {
     return (
