@@ -10,14 +10,15 @@ import Menu from '@material-ui/core/Menu'
 import NavbarStyle from './NavbarStyle'
 import { Button } from '@material-ui/core'
 import LoginModal from '../Login/LoginModal'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { BrowserRouter, Link } from 'react-router-dom'
+import { AuthService } from '../../shared/AuthService'
 
 export default function Navbar() {
     const classes = NavbarStyle.useStyles()
-    const [auth, setAuth] = React.useState(false)
-    const [open, setOpen] = React.useState(false)
+    const auth = localStorage.getItem('auth') === 'true'
     const [openLogin, setOpenLogin] = React.useState(false)
-    const [anchorEl, setAnchorEl] = React.useState(null)
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
 
     const handleClickOpenLogin = () => {
         setOpenLogin(true)
@@ -27,14 +28,6 @@ export default function Navbar() {
         setOpenLogin(false)
     }
 
-    const handleClose = () => {
-        setOpen(false)
-    }
-
-    const handleClickOpenModal = () => {
-        setOpen(true)
-    }
-
     const handleMenu = (event: any) => {
         setAnchorEl(event.currentTarget)
     }
@@ -42,11 +35,16 @@ export default function Navbar() {
     const handleMenuClose = () => {
         setAnchorEl(null)
     }
+
+    const handleDisconnect = () => {
+        setAnchorEl(null)
+        AuthService.logout()
+    }
+
     return (
         <div className={classes.root}>
             <AppBar position="static">
-
-                <Router>
+                <BrowserRouter>
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                             <MenuIcon/>
@@ -88,11 +86,12 @@ export default function Navbar() {
                                 >
                                     <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
                                     <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+                                    <MenuItem onClick={handleDisconnect}>Disconnect</MenuItem>
                                 </Menu>
                             </div>
                         )}
                     </Toolbar>
-                </Router>
+                </BrowserRouter>
             </AppBar>
         </div>
     )

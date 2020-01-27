@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import DialogTitle from '@material-ui/core/DialogTitle'
 import Dialog from '@material-ui/core/Dialog'
 import { blue } from '@material-ui/core/colors'
 import SignIn from './SignIn'
@@ -12,11 +11,15 @@ const useStyles = makeStyles({
         backgroundColor: blue[100],
         color: blue[600],
     },
+    dialogPaper: {
+        minHeight: '60vh',
+        maxHeight: '80vh',
+    },
 })
 
 export interface LoginDialogProps {
-    open: boolean;
-    onClose: (value: string) => void;
+    open: boolean
+    onClose: (value: string) => void
 }
 
 export default function LoginModal(props: LoginDialogProps) {
@@ -31,12 +34,17 @@ export default function LoginModal(props: LoginDialogProps) {
     }
 
     return (
-        <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+        <Dialog onClose={handleClose} classes={{ paper: classes.dialogPaper }} aria-labelledby="simple-dialog-title"
+                open={open}>
             <Route exact path="/sign_in">
-                <SignIn/>
+                <SignIn
+                    onClose={handleListItemClick}
+                />
             </Route>
             <Route exact path="/sign_up">
-                <SignUp/>
+                <SignUp
+                    onClose={handleListItemClick}
+                />
             </Route>
         </Dialog>
     )
