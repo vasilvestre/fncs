@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import Ticket from '../../domain/models/Ticket'
-import { withStyles } from '@material-ui/core'
+import { Icon, withStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Grid from '@material-ui/core/Grid'
+import CardHeader from '@material-ui/core/CardHeader'
+import TrainTwoToneIcon from '@material-ui/icons/TrainTwoTone';
+import DepartureBoardTwoToneIcon from '@material-ui/icons/DepartureBoardTwoTone';
+import FlightLandTwoToneIcon from '@material-ui/icons/FlightLandTwoTone';
+import CardActions from '@material-ui/core/CardActions'
+import AddShoppingCartTwoToneIcon from '@material-ui/icons/AddShoppingCartTwoTone';
+import Button from '@material-ui/core/Button';
 
 const URL = 'https://ressources.data.sncf.com/api/records/1.0/search/?dataset=tgvmax&sort=date&facet=date&facet=origine&facet=destination&facet=od_happy_card'
 
@@ -43,7 +50,7 @@ class TicketPage extends Component<any, any> {
                 json.records.map((record: any) => {
                     const fields = record.fields
                     let ticket: Ticket = {
-                        id: record.recordId,
+                        id: record.recordid.substring(0,5),
                         incomingAt: fields.heure_depart,
                         departureAt: fields.heure_arrivee,
                         destination: fields.destination,
@@ -66,7 +73,6 @@ class TicketPage extends Component<any, any> {
 
     render(): any {
         const { tickets, loading, error } = this.state
-        const bull = <span className={this.props.classes.bullet}>•</span>
         return (
             <>
                 {loading && <div>Loading...</div>}
@@ -75,17 +81,32 @@ class TicketPage extends Component<any, any> {
                     {tickets.map((ticket: Ticket) => (
                         <Grid item xs={6}>
                             <Card key={ticket.id} className={this.props.classes.card}>
+                                <CardHeader
+                                    title={'Ticket number ' + ticket.id}
+                                />
                                 <CardContent>
                                     <Typography className={this.props.classes.title}>
-                                        {ticket.incomingAt}
-                                    </Typography>
-                                    <Typography>
-                                        {ticket.departureAt}
-                                    </Typography>
-                                    <Typography>
-                                        {ticket.trainNumber}
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={4}>
+                                                <DepartureBoardTwoToneIcon/>
+                                                Departure at {ticket.departureAt}
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <FlightLandTwoToneIcon/>
+                                                Incoming at {ticket.incomingAt}
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <TrainTwoToneIcon/>
+                                                Train number {ticket.trainNumber}
+                                            </Grid>
+                                        </Grid>
                                     </Typography>
                                 </CardContent>
+                                <CardActions>
+                                    <Button variant="contained" size="large">
+                                        <AddShoppingCartTwoToneIcon/>
+                                    </Button>
+                                </CardActions>
                             </Card>
                         </Grid>
                     ))}
