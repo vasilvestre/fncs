@@ -1,4 +1,4 @@
-export default interface Ticket {
+export default interface TicketDto {
     id: string;
     incomingAt: Date;
     departureAt: Date;

@@ -10,8 +10,8 @@ import Menu from '@material-ui/core/Menu'
 import NavbarStyle from './NavbarStyle'
 import { Button } from '@material-ui/core'
 import LoginModal from '../Login/LoginModal'
-import { BrowserRouter, Link } from 'react-router-dom'
-import { AuthService } from '../../shared/AuthService'
+import { AuthService } from '../../services/AuthService'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     const classes = NavbarStyle.useStyles()
@@ -44,13 +44,12 @@ export default function Navbar() {
     return (
         <div className={classes.root}>
             <AppBar position="static">
-                <BrowserRouter>
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                             <MenuIcon/>
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
-                            FNCS
+                            <Link to='/'>FNCS</Link>
                         </Typography>
                         {!auth && (
                             <Button color="inherit" onClick={handleClickOpenLogin}>
@@ -84,14 +83,14 @@ export default function Navbar() {
                                     open={open}
                                     onClose={handleMenuClose}
                                 >
-                                    <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+                                    <MenuItem onClick={handleMenuClose}>
+                                        <Link to='/my_tickets'>My tickets</Link>
+                                    </MenuItem>
                                     <MenuItem onClick={handleDisconnect}>Disconnect</MenuItem>
                                 </Menu>
                             </div>
                         )}
                     </Toolbar>
-                </BrowserRouter>
             </AppBar>
         </div>
     )

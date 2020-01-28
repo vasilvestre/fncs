@@ -1,5 +1,4 @@
-import React from 'react'
-import UserLogin from '../domain/models/UserLogin'
+import UserLogin from '../models/UserLogin'
 import { useHistory } from 'react-router-dom'
 
 export const AuthService = {
