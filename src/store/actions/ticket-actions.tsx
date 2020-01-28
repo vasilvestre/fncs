@@ -3,15 +3,15 @@ import TicketDto from '../../models/TicketDto'
 export const ADD_TICKET = 'tickets:addTicket'
 export const REMOVE_TICKET = 'tickets:removeTicket'
 
-export function addTicket(ticket: TicketDto) {
+export function addTicket(newTicket: TicketDto) {
     return {
         type: ADD_TICKET,
-        ticket: ticket,
+        ticket: newTicket,
     }
 }
-export function removeTicket(ticket: TicketDto) {
+export function removeTicket(ticketToRemove: TicketDto) {
     return {
         type: REMOVE_TICKET,
-        ticket: ticket,
+        ticket: ticketToRemove
     }
 }

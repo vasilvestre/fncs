@@ -11,7 +11,7 @@ const ticketsReducer = (state: TicketDto[] = [], action: any) => {
             ];
             return newState;
         case REMOVE_TICKET:
-            return state.filter(ticket => ticket !== action.ticket)
+            return state.filter(ticket => ticket !== action.payload.ticket)
         default:
             return state
     }

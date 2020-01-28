@@ -71,9 +71,7 @@ class Ticket extends Component<TicketProps, any> {
     }
 
     private onClick = (event: any) => {
-        this.props.onAddTicket({
-            ticket: this.props.ticket,
-        })
+        this.props.onAddTicket(this.props.ticket)
     }
 }
 
