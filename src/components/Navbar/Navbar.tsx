@@ -13,10 +13,14 @@ import LoginModal from '../Login/LoginModal'
 import { AuthService } from '../../services/AuthService'
 import { Link } from 'react-router-dom'
 
-export default function Navbar() {
+interface NavbarProps {
+    openLogin: boolean
+}
+
+export default function Navbar(props: NavbarProps) {
     const classes = NavbarStyle.useStyles()
     const auth = localStorage.getItem('auth') === 'true'
-    const [openLogin, setOpenLogin] = React.useState(false)
+    const [openLogin, setOpenLogin] = React.useState(props.openLogin)
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
 
@@ -49,7 +53,7 @@ export default function Navbar() {
                         <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        <Link to='/'>FNCS</Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to='/'>FNCS</Link>
                     </Typography>
                     {!auth && (
                         <Button color="inherit" onClick={handleClickOpenLogin}>
@@ -60,6 +64,7 @@ export default function Navbar() {
                     {auth && (
                         <div>
                             <IconButton
+                                id="user-button"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
@@ -84,7 +89,7 @@ export default function Navbar() {
                                 onClose={handleMenuClose}
                             >
                                 <MenuItem onClick={handleMenuClose}>
-                                    <Link to='/my_tickets'>My tickets</Link>
+                                    <Link style={{ textDecoration: 'none', color: 'black' }} to='/my_tickets'>My tickets</Link>
                                 </MenuItem>
                                 <MenuItem onClick={handleDisconnect}>Disconnect</MenuItem>
                             </Menu>

@@ -116,7 +116,7 @@ export default function SignIn(props: any) {
                         </Button>
                         <Grid container>
                             <Grid item>
-                                <Link to="/sign_up">Don't have an account? Sign Up</Link>
+                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/sign_up">Don't have an account? Sign Up</Link>
                             </Grid>
                         </Grid>
                     </form>

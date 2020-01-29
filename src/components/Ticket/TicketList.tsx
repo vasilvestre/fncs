@@ -38,7 +38,7 @@ class TicketList extends Component<any, any> {
             <>
                 {loading && <div>Loading...</div>}
                 {!loading && !error &&
-                <Grid container className={this.props.classes.root} spacing={2}>
+                <Grid container id="ticket-list-container" className={this.props.classes.root} spacing={2}>
                     {tickets.map((ticket: TicketDto, index: number) => (
                         <Grid item xs={6} key={index}>
                             <Ticket

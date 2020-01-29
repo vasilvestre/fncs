@@ -20,6 +20,7 @@ jobs:
         with:
           install: false
           record: true
+          start: npm start
           group: Tests on Node v${{ matrix.node-version }}
           cache-key: node-v${{ matrix.node-version }}-on-${{ runner.os }}-hash-${{ hashFiles('package-lock.json') }}
         env:
