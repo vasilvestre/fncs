@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Deploy](https://github.com/vasilvestre/fncs/workflows/Deploy/badge.svg?branch=master)
+![End-to-end tests](https://github.com/vasilvestre/fncs/workflows/End-to-end%20tests/badge.svg)
+![Unit testing](https://github.com/vasilvestre/fncs/workflows/Unit%20testing/badge.svg)
 
 ## Available Scripts
 
