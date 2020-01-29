@@ -6,7 +6,6 @@ jobs:
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
-        machines: [1, 2]
     name: E2E on Node ${{ matrix.node-version }}
     steps:
       - name: Setup Node
@@ -21,7 +20,6 @@ jobs:
         with:
           install: false
           record: true
-          parallel: true
           start: npm start
           group: Tests on Node v${{ matrix.node-version }}
           cache-key: node-v${{ matrix.node-version }}-on-${{ runner.os }}-hash-${{ hashFiles('package-lock.json') }}
