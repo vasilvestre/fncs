@@ -91,6 +91,9 @@ export default function Navbar(props: NavbarProps) {
                                 <MenuItem onClick={handleMenuClose}>
                                     <Link style={{ textDecoration: 'none', color: 'black' }} to='/my_tickets'>My tickets</Link>
                                 </MenuItem>
+                                <MenuItem onClick={handleMenuClose}>
+                                    <Link style={{ textDecoration: 'none', color: 'black' }} to='/account'>My account</Link>
+                                </MenuItem>
                                 <MenuItem onClick={handleDisconnect}>Disconnect</MenuItem>
                             </Menu>
                         </div>

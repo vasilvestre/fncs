@@ -6,4 +6,5 @@ export default interface TicketDto {
     trainNumber: string;
     origin: string;
     date: string;
+    price: number;
 }

@@ -9,6 +9,7 @@ import { IAppState } from '../store/StoreConfiguration'
 import { connect } from 'react-redux'
 import TicketDto from '../models/TicketDto'
 import Toolbar from '@material-ui/core/Toolbar'
+import UserPanel from './UserPanel/UserPanel'
 
 interface AppProps {
     tickets: TicketDto[]
@@ -43,6 +44,9 @@ class App extends Component<AppProps, AppState> {
                         <UserTicketList
                             tickets={this.props.tickets}
                         />
+                    </Route>
+                    <Route exact path="/account">
+                        <UserPanel/>
                     </Route>
                 </Container>
             </BrowserRouter>
