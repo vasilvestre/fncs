@@ -39,6 +39,7 @@ export default function SignIn(props: any) {
     const classes = useStyles()
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
+    const [redirect, setRedirect] = React.useState(false)
 
     const handleSubmit = (event: any) => {
         event.preventDefault()
@@ -47,7 +48,7 @@ export default function SignIn(props: any) {
             .login(userLogin)
             .then(() => {
                 props.onClose()
-                window.location.replace('/');
+                setRedirect(true)
             })
     }
 
@@ -61,6 +62,7 @@ export default function SignIn(props: any) {
 
     return (
         <>
+            {redirect && <Redirect to='/'/>}
             <Container component="main" maxWidth="xs">
                 <CssBaseline/>
                 <div className={classes.paper}>

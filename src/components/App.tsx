@@ -5,7 +5,7 @@ import TicketPage from './Ticket/TicketList'
 import Navbar from './Navbar/Navbar'
 import UserTicketList from './UserTicket/UserTicketList'
 import { Container } from '@material-ui/core'
-import { IAppState } from '../store/AppStore'
+import { IAppState } from '../store/StoreConfiguration'
 import { connect } from 'react-redux'
 import TicketDto from '../models/TicketDto'
 

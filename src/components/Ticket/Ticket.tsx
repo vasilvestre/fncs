@@ -13,26 +13,6 @@ import Button from '@material-ui/core/Button'
 import { addTicket } from '../../store/actions/ticket-actions'
 import { connect } from 'react-redux'
 
-const useStyles = (theme: any) => ({
-    root: {
-        flexGrow: 1,
-    },
-    card: {
-        minWidth: 275,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-})
-
 interface TicketProps {
     onAddTicket: any,
     ticket: TicketDto

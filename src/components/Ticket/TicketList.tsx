@@ -3,8 +3,7 @@ import TicketDto from '../../models/TicketDto'
 import { withStyles } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import Ticket from './Ticket'
-
-const URL = 'https://ressources.data.sncf.com/api/records/1.0/search/?dataset=tgvmax&sort=date&facet=date&facet=origine&facet=destination&facet=od_happy_card'
+import { TicketService } from '../../services/TicketService'
 
 const styles = (theme: any) => ({
     root: {
@@ -20,23 +19,8 @@ class TicketList extends Component<any, any> {
     }
 
     componentDidMount(): void {
-        fetch(URL)
-            .then(res => res.json())
-            .then(json => {
-                let tickets: TicketDto[] = []
-                json.records.map((record: any) => {
-                    const fields = record.fields
-                    let ticket: TicketDto = {
-                        id: record.recordid.substring(0, 5),
-                        incomingAt: fields.heure_depart,
-                        departureAt: fields.heure_arrivee,
-                        destination: fields.destination,
-                        trainNumber: fields.train_no,
-                        origin: fields.origine,
-                        date: fields.date,
-                    }
-                    tickets.push(ticket)
-                })
+        TicketService.getAll()
+            .then((tickets: TicketDto[]) => {
                 this.setState({
                     tickets: tickets,
                     loading: false,
