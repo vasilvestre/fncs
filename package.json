@@ -42,7 +42,7 @@
     "test-ci": "react-scripts test --coverage --passWithNoTests",
     "eject": "react-scripts eject",
     "e2e": "cypress run --headless",
-    "deploy": "gh-pages -d build --repo git@github.com:vasilvestre/fncs.git",
+    "deploy": "gh-pages -d build",
     "cypress:open": "cypress open"
   },
   "eslintConfig": {
