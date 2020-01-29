@@ -42,7 +42,7 @@
     "test-ci": "react-scripts test --coverage --passWithNoTests",
     "eject": "react-scripts eject",
     "e2e": "cypress run --headless",
-    "deploy": "gh-pages -d build --repo git@github.com:vasilvestre/fncs.git",
+    "deploy": "gh-pages -d build",
     "cypress:open": "cypress open"
   },
   "eslintConfig": {
@@ -70,15 +70,16 @@
     "gh-pages": "^2.2.0",
     "husky": "^4.2.1",
     "jest": "^24.9.0",
+    "jest-fetch-mock": "^3.0.1",
     "prettier": "1.19.1"
   },
   "jest": {
     "coverageThreshold": {
       "global": {
-        "branches": 1,
-        "functions": 1,
-        "lines": 1,
-        "statements": -60
+        "branches": 0,
+        "functions": 0,
+        "lines": 5,
+        "statements": -200
       }
     }
   },

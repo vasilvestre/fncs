@@ -22,6 +22,7 @@ export async function getAll() {
             trainNumber: fields.train_no,
             origin: fields.origine,
             date: fields.date,
+            price: 20,
         }
         tickets.push(ticket)
     })

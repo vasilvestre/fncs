@@ -19,6 +19,14 @@ interface TicketProps {
 }
 
 class Ticket extends Component<TicketProps, any> {
+
+    constructor(props: TicketProps, context: any) {
+        super(props, context)
+        this.state = {
+            user: JSON.parse(String(localStorage.getItem('user'))),
+        }
+    }
+
     public render() {
         return (
             <Card>
@@ -42,6 +50,25 @@ class Ticket extends Component<TicketProps, any> {
                     </Grid>
                 </CardContent>
                 <CardActions>
+                    {!this.state.user.discountCode &&
+                    <>
+                        Price :
+                        <Button>
+                            {this.props.ticket.price} €
+                        </Button>
+                    </>
+                    }
+                    {this.state.user.discountCode &&
+                    <>
+                        Price :
+                        <Button style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }}>
+                            {this.props.ticket.price}
+                        </Button>
+                        <Button>
+                            10 €
+                        </Button>
+                    </>
+                    }
                     <Button variant="contained" size="large" onClick={this.onClick}>
                         <AddShoppingCartTwoToneIcon/>
                     </Button>
