@@ -20,3 +20,10 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister()
+
+// expose store when run in Cypress
+// @ts-ignore
+if (window.Cypress) {
+    // @ts-ignore
+    window.store = store
+}
